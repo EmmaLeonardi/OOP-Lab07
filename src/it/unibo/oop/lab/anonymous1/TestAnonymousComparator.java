@@ -81,7 +81,7 @@ public final class TestAnonymousComparator {
 
 	    @Override
 	    public int compare(User o1, User o2) {
-		return o1.getAge()-o2.getAge();
+		return o1.getAge() - o2.getAge();
 	    }
 
 	});
@@ -116,7 +116,14 @@ public final class TestAnonymousComparator {
 	 * NOTE: in order to sort a list think about a method of the utility class
 	 * Collections
 	 */
-	// TODO
+	Collections.sort(rossiUsers, new Comparator<User>() {
+
+	    @Override
+	    public int compare(User o1, User o2) {
+		return -(o1.getAge() - o2.getAge());
+	    }
+
+	});
 	/*
 	 * expected Result
 	 */
