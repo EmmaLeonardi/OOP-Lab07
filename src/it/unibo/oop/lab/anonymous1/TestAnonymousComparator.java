@@ -80,6 +80,9 @@ public final class TestAnonymousComparator {
 	Collections.sort(denzelUsers, new Comparator<User>() {
 
 	    @Override
+	    /**
+	     * {@inheritDoc}
+	     * */
 	    public int compare(User o1, User o2) {
 		return o1.getAge() - o2.getAge();
 	    }
@@ -119,6 +122,9 @@ public final class TestAnonymousComparator {
 	Collections.sort(rossiUsers, new Comparator<User>() {
 
 	    @Override
+	    /**
+	     * {@inheritDoc}
+	     * */
 	    public int compare(User o1, User o2) {
 		return -(o1.getAge() - o2.getAge());
 	    }
