@@ -37,7 +37,9 @@ public enum Sport {
      * 
      */
 
-    BASKET(Place.INDOOR, 5, "Basket"), VOLLEY(Place.INDOOR, 6, "Volley"), TENNIS(Place.INDOOR, 1, "Tennis"), BIKE(Place.OUTDOOR, 1, "Bike"), F1(Place.OUTDOOR, 1, "F1"), MOTOGP(Place.OUTDOOR, 1, "MotoGP"), SOCCER(Place.OUTDOOR, 11, "Soccer");
+    BASKET(Place.INDOOR, 5, "Basket"), VOLLEY(Place.INDOOR, 6, "Volley"), TENNIS(Place.INDOOR, 1, "Tennis"),
+    BIKE(Place.OUTDOOR, 1, "Bike"), F1(Place.OUTDOOR, 1, "F1"), MOTOGP(Place.OUTDOOR, 1, "MotoGP"),
+    SOCCER(Place.OUTDOOR, 11, "Soccer");
 
     /*
      * 
@@ -58,11 +60,18 @@ public enum Sport {
      * 
      * - Sport(final Place place, final int noTeamMembers, final String actualName)
      */
-    
-    Sport(final Place place, final int noTeamMembers, final String actualName){
-	this.playingfield=place;
-	this.members=noTeamMembers;
-	this.name=actualName;
+
+    /**
+     * Builds a new {@link Sport}.
+     * 
+     * @param place         the place where the sport is played
+     * @param noTeamMembers the number of team members
+     * @param actualName    the name of the sport
+     */
+    Sport(final Place place, final int noTeamMembers, final String actualName) {
+	this.playingfield = place;
+	this.members = noTeamMembers;
+	this.name = new String(actualName);
     }
 
     /*
@@ -89,21 +98,33 @@ public enum Sport {
      * 
      * Returns the string representation of a sport
      */
-    
+
+    /**
+     * @return true if the sport is individual
+     */
     public boolean isIndividualSport() {
-	return this.members==1;
+	return this.members == 1;
     }
-    
+
+    /**
+     * @return true if the sport is played indoor
+     */
     public boolean isIndoorSport() {
-	return this.playingfield==Place.INDOOR;
+	return this.playingfield == Place.INDOOR;
     }
-    
+
+    /**
+     * @return the place where the sport is played
+     */
     public Place getPlace() {
 	return this.playingfield;
     }
-    
+
+    /**
+     * {@inheritDoc}
+     */
     public String toString() {
-	return this.name+" is played with "+this.members+" player(s) on an "+getPlace()+" field";
+	return this.name + " is played with " + this.members + " player(s) on an " + getPlace() + " field";
     }
-    
+
 }
